@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<?OFX OFXHEADER="200" VERSION="200" SECURITY="NONE" OLDFILEUID="NONE" NEWFILEUID="NONE"?>
+
+<OFX>
+    <SIGNONMSGSRSV1>
+        <SONRS>
+            <STATUS>
+                <CODE>0</CODE>
+                <SEVERITY>INFO</SEVERITY>
+            </STATUS>
+            <DTSERVER>20190330152307.983[-4:EDT]</DTSERVER>
+            <LANGUAGE>ENG</LANGUAGE>
+            <FI>
+                <ORG>MyBank</ORG>
+            </FI>
+        </SONRS>
+    </SIGNONMSGSRSV1>
+    <BANKMSGSRSV1>
+        <STMTTRNRS>
+            <TRNUID>0</TRNUID>
+            <STATUS>
+                <CODE>0</CODE>
+                <SEVERITY>INFO</SEVERITY>
+            </STATUS>
+            <STMTRS>
+                <CURDEF>USD</CURDEF>
+                <BANKACCTFROM>
+                    <BANKID>123456789</BANKID>
+                    <ACCTID>00000000001234567</ACCTID>
+                    <ACCTTYPE>CHECKING</ACCTTYPE>
+                </BANKACCTFROM>
+                <BANKTRANLIST>
+                    <DTSTART>19700101120000</DTSTART>
+                    <DTEND>20190330120000</DTEND>
+                    <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20190325120000</DTPOSTED>
+                        <DTUSER>20190325120000</DTUSER>
+                        <TRNAMT>-75.01</TRNAMT>
+                        <FITID>5348555026201903251</FITID>
+                        <NAME>DEBIT CARD PURCHASE XXXXX1234</NAME>
+                        <MEMO>Merchant1</MEMO>
+                    </STMTTRN>
+                    <STMTTRN>
+                        <TRNTYPE>DEBIT</TRNTYPE>
+                        <DTPOSTED>20190321120000</DTPOSTED>
+                        <DTUSER>20190321120000</DTUSER>
+                        <TRNAMT>-15000.0</TRNAMT>
+                        <FITID>5348555026201903211</FITID>
+                        <NAME>ONLINE TRANSFER TO XXXXX1234</NAME>
+                    </STMTTRN>
+                    <STMTTRN>
+                        <TRNTYPE>CREDIT</TRNTYPE>
+                        <DTPOSTED>20190319120000</DTPOSTED>
+                        <DTUSER>20190319120000</DTUSER>
+                        <TRNAMT>22080.0</TRNAMT>
+                        <FITID>5348555026201903191</FITID>
+                        <NAME>DEPOSIT XXXXX5678</NAME>
+                    </STMTTRN>
+                    <STMTTRN>
+                        <TRNTYPE>CHECK</TRNTYPE>
+                        <DTPOSTED>20190313120000</DTPOSTED>
+                        <DTUSER>20190313120000</DTUSER>
+                        <TRNAMT>-2289.27</TRNAMT>
+                        <FITID>5348555026201903131</FITID>
+                        <CHECKNUM>7006</CHECKNUM>
+                        <NAME>CHECK 7006 083597731</NAME>
+                    </STMTTRN>
+                </BANKTRANLIST>
+                <LEDGERBAL>
+                    <BALAMT>123.45</BALAMT>
+                    <DTASOF>20190330120000</DTASOF>
+                </LEDGERBAL>
+            </STMTRS>
+        </STMTTRNRS>
+    </BANKMSGSRSV1>
+</OFX>
