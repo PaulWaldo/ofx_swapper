@@ -1,7 +1,8 @@
-import unittest
 import os
-from ofx_swapper import OFXSwapper
+import unittest
 import xml.etree.ElementTree as ET
+
+from ofx_swapper import OFXSwapper
 
 
 class TestOFXSwapper(unittest.TestCase):
