@@ -17,12 +17,10 @@ class OFXSwapper:
                 continue
             if memo == None:
                 continue
-            print(f'Found "{name.text}" and "{memo.text}"')
+            # print(f'Found "{name.text}" and "{memo.text}"')
             old_memo_text = memo.text
             memo.text = name.text
             name.text = old_memo_text
 
     def write_file(self, file_name):
-        pass
-
-# tree.write('modified.OFX')
+        self._tree.write(file_name)
