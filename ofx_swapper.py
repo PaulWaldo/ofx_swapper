@@ -22,4 +22,7 @@ class OFXSwapper:
             memo.text = name.text
             name.text = old_memo_text
 
+    def write_file(self, file_name):
+        pass
+
 # tree.write('modified.OFX')

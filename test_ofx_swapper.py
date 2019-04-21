@@ -1,4 +1,5 @@
 import unittest
+import os
 from ofx_swapper import OFXSwapper
 import xml.etree.ElementTree as ET
 
@@ -18,6 +19,12 @@ class TestOFXSwapper(unittest.TestCase):
         memo = first_statement.find('MEMO').text
         self.assertEqual(memo, 'DEBIT CARD PURCHASE XXXXX1234')
 
-# TODO: Test that unwritten method save_file writes a file
+    def test_write_file_writes_a_file(self):
+        sut = OFXSwapper('test_data/test.ofx')
+        test_file = 'test.ofx'
+        sut.write_file(test_file)
+        self.assertTrue(os.access(test_file, os.F_OK))
+        os.unlink(test_file)
+
 if __name__ == '__main__':
     unittest.main()
