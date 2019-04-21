@@ -18,6 +18,6 @@ class TestOFXSwapper(unittest.TestCase):
         memo = first_statement.find('MEMO').text
         self.assertEqual(memo, 'DEBIT CARD PURCHASE XXXXX1234')
 
-
+# TODO: Test that unwritten method save_file writes a file
 if __name__ == '__main__':
     unittest.main()
