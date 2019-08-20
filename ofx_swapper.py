@@ -14,10 +14,10 @@ class OFXSwapper:
         for transaction in root.iter('STMTTRN'):
             name = transaction.find('NAME')
             memo = transaction.find('MEMO')
-            if name == None:
+            if name is None:
                 print('Name missing')
                 continue
-            if memo == None:
+            if memo is None:
                 continue
             # print(f'Found "{name.text}" and "{memo.text}"')
             old_memo_text = memo.text
@@ -33,7 +33,9 @@ if __name__ == '__main__':
         description='Swap name and memo fields in an OFX file.')
     parser.add_argument('input', help='an OFX file to parse')
     parser.add_argument(
-        '--overwrite', '-o', help='overwrite input file with swapped data, otherwise write to stdout', action='store_true')
+        '--overwrite', '-o',
+        help='overwrite input file, otherwise write to stdout',
+        action='store_true')
     args = parser.parse_args()
 
     swapper = OFXSwapper(args.input)
