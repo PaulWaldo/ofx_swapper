@@ -13,11 +13,11 @@ class OFXSwapper:
 
     def _swap_names_and_memos(self):
         root = self._tree.getroot()
-        for transaction in root.iter('STMTTRN'):
-            name = transaction.find('NAME')
-            memo = transaction.find('MEMO')
+        for transaction in root.iter("STMTTRN"):
+            name = transaction.find("NAME")
+            memo = transaction.find("MEMO")
             if name is None:
-                print('Name missing')
+                print("Name missing")
                 continue
             if memo is None:
                 continue
@@ -27,21 +27,28 @@ class OFXSwapper:
             name.text = old_memo_text
 
     def write_file(self, file_name):
-        self._tree.write(file_name, encoding='unicode')
+        self._tree.write(file_name, encoding="unicode")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description='Swap name and memo fields in an OFX file.')
-    parser.add_argument('input', help='an OFX file to parse')
+        description="Swap name and memo fields in an OFX file."
+    )
     parser.add_argument(
-        '--overwrite', '-o',
-        help='overwrite input file, otherwise write to stdout',
-        action='store_true')
+        "-r",
+        "--readfile",
+        type=argparse.FileType("r"),
+        default="-",
+        help="Input OFX file.  Use '-' for stdin (default)",
+    )
+    parser.add_argument(
+        "-w",
+        "--writefile",
+        type=argparse.FileType("w"),
+        default="-",
+        help="File to output swapped OFX.  Use '-' for stdout (default)",
+    )
     args = parser.parse_args()
 
-    swapper = OFXSwapper(args.input)
-    if args.overwrite:
-        swapper.write_file(args.input)
-    else:
-        swapper.write_file(sys.stdout)
+    swapper = OFXSwapper(args.readfile)
+    swapper.write_file(args.writefile)
