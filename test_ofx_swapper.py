@@ -26,5 +26,6 @@ class TestOFXSwapper(unittest.TestCase):
         self.assertTrue(os.access(test_file, os.F_OK))
         os.unlink(test_file)
 
+
 if __name__ == "__main__":
     unittest.main()

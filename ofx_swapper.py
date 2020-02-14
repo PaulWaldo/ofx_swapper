@@ -30,25 +30,20 @@ class OFXSwapper:
         self._tree.write(file_name, encoding="unicode")
 
 
-if __name__ == "__main__":
+def parse_command_line():
     parser = argparse.ArgumentParser(
         description="Swap name and memo fields in an OFX file."
     )
     parser.add_argument(
-        "-r",
-        "--readfile",
-        type=argparse.FileType("r"),
-        default="-",
-        help="Input OFX file.  Use '-' for stdin (default)",
+        "infile", nargs="?", type=argparse.FileType("r"), default=sys.stdin
     )
     parser.add_argument(
-        "-w",
-        "--writefile",
-        type=argparse.FileType("w"),
-        default="-",
-        help="File to output swapped OFX.  Use '-' for stdout (default)",
+        "outfile", nargs="?", type=argparse.FileType("w"), default=sys.stdout
     )
-    args = parser.parse_args()
+    return parser.parse_args()
 
-    swapper = OFXSwapper(args.readfile)
-    swapper.write_file(args.writefile)
+
+if __name__ == "__main__":
+    args = parse_command_line()
+    swapper = OFXSwapper(args.infile)
+    swapper.write_file(args.outfile)
